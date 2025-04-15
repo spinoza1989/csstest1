@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* leftBottom class 令div 靠左下方,留出20,20的margin,高度300,长度800*/
+        .leftBottom {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            width: 800px;
+            height: 300px;
+            background-color: lightblue;
+            overflow-x: auto; /* 添加水平滚动条 */
+            white-space: nowrap; /* 防止子元素换行 */
+        }
+        /*  class 为child1 的元素样式为高250,宽度200,背景颜色红色,是行内元素,边框为黄色 */
+        .child1 {
+            height: 250px;
+            width: 200px;
+            background-color: red;
+            display: inline-block; /* 保证子元素在一行内排列 */
+            border: 2px solid yellow;
+        }
+
+        /* 自定义滚动条样式 */
+        .leftBottom::-webkit-scrollbar {
+            height: 5px; /* 滚动条高度 */
+        }
+
+        .leftBottom::-webkit-scrollbar-thumb {
+            background-color: green; /* 滚动条颜色改为绿色 */
+            border-radius: 10px; /* 圆角滚动条 */
+        }
+
+        .leftBottom::-webkit-scrollbar-track {
+            background-color: lightgray; /* 滚动条轨道颜色 */
+        }
+
+        .leftBottom::-webkit-scrollbar-button {
+            display: none; /* 隐藏左右三角号 */
+        }
+
+        /* 鼠标移入滚动条时显示小手标志 */
+        .leftBottom:hover::-webkit-scrollbar-thumb {
+            cursor: pointer; /* 鼠标移入时显示小手标志 */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to My Web Page</h1>
+
+    <button id="controller1">controller1</button>
+
+    <div class="leftBottom"></div>
+
+    <script src="./index.js"></script>
+
+    <!-- -->
+
+    
+</body>
+</html>
