@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dynamic Scrolling</title>
     <style>
         .a1 {
             width: 300px;
-            height: 500px; /* 修改高度为 500px */
+            height: 500px;
             margin: 0 auto;
             border: 1px solid black;
             position: relative;
@@ -15,16 +15,18 @@
         }
         .b1 {
             width: 300px;
-            height: 200px;
+            height: 100px;
             border: 1px solid blue;
             margin-bottom: 10px;
+            box-sizing: border-box;
         }
     </style>
 </head>
 <body>
-    <h1>test2</h1>
+    <h1>Dynamic Scrolling</h1>
     <div class="a1"></div>
-    <button id="addDivs">添加子元素</button>
+    <button id="addDivs">Render Initial Elements</button>
+    <button id="addData">Add New Data</button>
 
     <script src="./index.js"></script>
 </body>
