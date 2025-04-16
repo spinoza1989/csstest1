@@ -8,6 +8,7 @@ let array = [
 ]; // 动态数组
 
 let isScrolling = false; // 标记是否正在滚动
+let scrollInterval = null; // 保存滚动的定时器
 
 document.getElementById("addDivs").addEventListener("click", function () {
     renderElements();
@@ -54,7 +55,7 @@ function startScrolling() {
     isScrolling = true; // 标记为正在滚动
 
     // 滚动逻辑
-    const interval = setInterval(() => {
+    scrollInterval = setInterval(() => {
         const totalHeight = (childHeight + childMargin) * children.length - childMargin; // 动态计算子元素总高度
 
         scrollPosition += 1; // 每次向上滚动 1px
@@ -68,9 +69,21 @@ function startScrolling() {
             if (array.length > children.length) {
                 renderElements(); // 重新渲染子元素
             } else {
-                clearInterval(interval); // 停止滚动
+                clearInterval(scrollInterval); // 停止滚动
                 isScrolling = false; // 标记为未滚动
             }
         }
     }, 20); // 每 20ms 滚动 1px
 }
+
+// 绑定鼠标事件（只绑定一次）
+const parentDiv = document.querySelector(".a1");
+parentDiv.addEventListener("mouseenter", () => {
+    clearInterval(scrollInterval); // 停止滚动
+});
+
+parentDiv.addEventListener("mouseleave", () => {
+    if (isScrolling) {
+        startScrolling(); // 重新启动滚动
+    }
+});
